@@ -312,7 +312,8 @@ enter_apk_name() {
   else
     installdir="app"
   fi
-  systemize /system/$installdir /data/app/${apklabel}-*/base.apk
+  path=$(pm path "$apkLabel")
+  systemize /system/$installdir $path
   [ $? -ne 0 ] && abort "Failed!"
 }
 
